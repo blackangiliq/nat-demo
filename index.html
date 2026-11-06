@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <!-- يُستبدل بقيمة `--base-href` عند `flutter build web`. -->
+  <base href="/nat-demo/">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="نات تلكوم — منصّة إدارة متكاملة للمجمّعات السكنية: لكل ساكن وموظّف ومستثمر واجهته. نسخة تجريبية ببيانات وهمية.">
+  <meta name="theme-color" content="#04070C">
+
+  <!-- معاينة الرابط عند مشاركته -->
+  <meta property="og:title" content="نات تلكوم — إدارة المجمّعات السكنية">
+  <meta property="og:description" content="نسخة تجريبية: اختر أي دور (مالك، مستأجر، حارس، مدير، مستثمر...) وجرّب واجهاته.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="icons/Icon-512.png">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="نات تلكوم">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>نات تلكوم — إدارة المجمّعات</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    html, body { margin: 0; height: 100%; background: #04070C; }
+    #nat-loader {
+      position: fixed; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 18px;
+      color: #93A3B8; font: 15px/1.5 system-ui, "Segoe UI", Tahoma, sans-serif;
+      transition: opacity .3s;
+    }
+    #nat-loader b { color: #EAF2FA; font-size: 20px; }
+    #nat-loader i {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 3px solid #182638; border-top-color: #19A9F0;
+      animation: nat-spin .9s linear infinite;
+    }
+    @keyframes nat-spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="nat-loader">
+    <i></i>
+    <b>نات تلكوم</b>
+    <span>جارٍ تحميل النسخة التجريبية…</span>
+  </div>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var l = document.getElementById('nat-loader');
+      if (l) { l.style.opacity = '0'; setTimeout(function () { l.remove(); }, 300); }
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
